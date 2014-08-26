@@ -1,6 +1,6 @@
 <?php
 
-namespace BigRoomStudios\PineappleBundle\Configurator;
+namespace BRS\PineappleBundle\Configurator;
 
 use Symfony\Component\Yaml\Yaml;
 
@@ -32,7 +32,7 @@ class RoleConfigurator
 		
 		
 		$kernel = $this->container->get('kernel');
-		$config = file_get_contents($kernel->locateResource('@BRSCoreBundle/Resources/config/pineapple.json'));
+		$config = file_get_contents($kernel->locateResource('@BRSPineappleBundle/Resources/config/pineapple.json'));
 		
 		$config_json = json_decode($config, true);
 		

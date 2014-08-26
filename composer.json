@@ -2,7 +2,7 @@
     "name": "BigRoomStudios/PineappleBundle",
     "type": "symfony-bundle",
     "description": "Symfony PineappleBundle",
-    "keywords": ["brs", "pineapple", "block],
+    "keywords": ["brs", "pineapple", "block"],
     "homepage": "https://github.com/BigRoomStudios/PineappleBundle",
     "license": "MIT",
     "authors": [
