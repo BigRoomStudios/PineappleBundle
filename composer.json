@@ -1,0 +1,26 @@
+{
+    "name": "BigRoomStudios/PineappleBundle",
+    "type": "symfony-bundle",
+    "description": "Symfony PineappleBundle",
+    "keywords": ["brs", "pineapple", "block],
+    "homepage": "https://github.com/BigRoomStudios/PineappleBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Leighton",
+            "email": "brian@bigroomstudios.com",
+            "homepage": "http://www.bigroomstudios.com/"
+        },
+        {
+            "name": "Daniel Raftery",
+            "email": "dan@bigroomstudios.com",
+            "homepage": "http://www.bigroomstudios.com/"
+        }
+    ],
+    "require": {
+        "sonata-project/block-bundle": "2.2.11"
+    },
+    "autoload": {
+        "psr-4": { "BRS\\PineappleBundle\\": "" }
+    }
+}
