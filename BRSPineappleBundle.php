@@ -1,13 +1,13 @@
 <?php
 
-namespace BigRoomStudios\PineappleBundle;
+namespace BRS\PineappleBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use BigRoomStudios\PineappleBundle\DependencyInjection\Compiler\WidgetServiceCompilerPass;
+use BRS\PineappleBundle\DependencyInjection\Compiler\WidgetServiceCompilerPass;
 
-class BRSCoreBundle extends Bundle
+class BRSPineappleBundle extends Bundle
 {
 	
 	/**

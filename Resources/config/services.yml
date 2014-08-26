@@ -3,13 +3,13 @@ parameters:
 services:
     
     brs.configurator:
-        class: BigRoomStudios\PineappleBundle\Configurator\RoleConfigurator
+        class: BRS\PineappleBundle\Configurator\RoleConfigurator
         arguments:
             container: @service_container
             config_path: 'test'
     
     brs.twig.pineapple_extension:
-        class: BigRoomStudios\PineappleBundle\Twig\PineappleExtension
+        class: BRS\PineappleBundle\Twig\PineappleExtension
         arguments:
             configurator: @brs.configurator
         tags:

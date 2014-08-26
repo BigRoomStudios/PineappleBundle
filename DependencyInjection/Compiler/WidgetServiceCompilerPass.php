@@ -1,6 +1,6 @@
 <?php
 
-namespace BRS\CoreBundle\DependencyInjection\Compiler;
+namespace BRS\PineappleBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
