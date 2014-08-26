@@ -2,17 +2,8 @@
   "id": "pineapple-main",
   "actions": [
     {
-      "label": "BRS",
-      "hide_label": true,
-      "className": "pineapple-drkblue",
-      "action": "href:/",
-      "icon": "/lib/images/brs.svg",
-      "roles": ["ROLE_ADMIN", "ROLE_SUPER_ADMIN"]
-    },
-    {
       "label": "Editor",
       "action": "menu:pineapple-editor",
-      "icon": "fa fa-pencil-square-o",
       "submenu": {
         "id": "pineapple-editor",
         "actions": [
@@ -21,7 +12,7 @@
           {"label": "H3", "action": "mod:h3"},
           {"label": "P", "action": "mod:p"},
           {
-            "label": "Font Size", "action": "menu:pineapple-editor-fontsize", "icon": "fa fa-text-height", "hide_label": true,
+            "label": "Font Size", "action": "menu:pineapple-editor-fontsize", "hide_label": true,
             "submenu": {
               "id": "pineapple-editor-fontsize",
               "actions": [
@@ -52,15 +43,13 @@
     {
       "label": "Page",
       "action": "menu:pineapple-page",
-      "icon": "fa fa-file-o",
       "submenu": {
         "id": "pineapple-page",
         "actions": [
-          {"label": "Add new page", "action": "pane:brs.block.service.form/form_type=page&data_class=Application\\Sonata\\PageBundle\\Entity\\Page&page_id=null", "icon": "fa fa-plus"},
+          {"label": "Add new page", "action": "pane:brs.block.service.form/form_type=page&data_class=Application\\Sonata\\PageBundle\\Entity\\Page&page_id=null"},
           {
             "label": "Add new row",
             "action": "menu:pineapple-page-new-row",
-            "icon": "fa fa-columns",
             "submenu": {
               "id": "pineapple-page-new-row",
               "actions": [
@@ -71,8 +60,8 @@
               ]
             }
           },
-          {"label": "Settings", "action": "pane:brs.block.service.form/form_type=page&data_class=Application\\Sonata\\PageBundle\\Entity\\Page", "icon": "fa fa-cog"},
-          {"label": "List", "action": "pane:brs.block.service.admin_list/admin_service=sonata.page.admin.page", "icon": "fa fa-list"}
+          {"label": "Settings", "action": "pane:brs.block.service.form/form_type=page&data_class=Application\\Sonata\\PageBundle\\Entity\\Page"},
+          {"label": "List", "action": "pane:brs.block.service.admin_list/admin_service=sonata.page.admin.page"}
         ]
       },
       "roles": ["ROLE_ADMIN", "ROLE_SUPER_ADMIN"]
@@ -80,7 +69,6 @@
     {
       "label": "Save",
       "action": "menu:pineapple-save",
-      "icon": "fa fa-floppy-o",
       "submenu": {
         "id": "pineapple-save",
         "actions": [
@@ -93,11 +81,10 @@
     {
       "label": "Site",
       "action": "menu:pineapple-site",
-      "icon": "fa fa-sitemap",
       "submenu": {
         "id": "pineapple-site",
         "actions": [
-          {"label": "Settings", "action": "pane:brs.block.service.form/form_type=site&data_class=Application\\Sonata\\PageBundle\\Entity\\Site", "icon": "fa fa-cog"}
+          {"label": "Settings", "action": "pane:brs.block.service.form/form_type=site&data_class=Application\\Sonata\\PageBundle\\Entity\\Site"}
         ]
       },
       "roles": ["ROLE_ADMIN", "ROLE_SUPER_ADMIN"]
@@ -105,14 +92,6 @@
     {
       "label": "Admin",
       "action": "href:/admin",
-      "icon": "fa fa-cog",
-      "roles": ["ROLE_USER", "ROLE_SUPER_ADMIN"]
-    },
-    {
-      "label": "Logout",
-      "className": "pineapple-pullright",
-      "action": "href:/logout",
-      "icon": "fa fa-sign-out",
       "roles": ["ROLE_USER", "ROLE_SUPER_ADMIN"]
     }
   ]
