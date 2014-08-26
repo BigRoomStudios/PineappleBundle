@@ -18,12 +18,17 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('brs_pineapple');
+        $node = $treeBuilder->root('brs_pineapple');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
-
+		$node
+            ->children()
+                ->scalarNode('config_path')->defaultValue('@BRSPineappleBundle/Resources/config/pineapple.json')->end()
+            ->end()
+        ;
+		
         return $treeBuilder;
     }
 }

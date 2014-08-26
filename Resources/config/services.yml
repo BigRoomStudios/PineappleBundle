@@ -1,12 +1,9 @@
-parameters:
-
 services:
     
     brs.configurator:
         class: BRS\PineappleBundle\Configurator\RoleConfigurator
         arguments:
             container: @service_container
-            config_path: 'test'
     
     brs.twig.pineapple_extension:
         class: BRS\PineappleBundle\Twig\PineappleExtension

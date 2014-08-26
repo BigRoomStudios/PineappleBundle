@@ -15,12 +15,10 @@ class RoleConfigurator
 	/**
      * @param $configurator
      */
-    public function __construct($container, $config_path) {
+    public function __construct($container) {
     	
         $this->container = $container;
-		$this->config_path = $config_path;
-		
-		die($config_path);
+		$this->config_path = $container->getParameter('brs_pineapple.config_path');
 		
     }
 	
@@ -29,10 +27,8 @@ class RoleConfigurator
 		
 		$yaml = Yaml::parse($this->config_path);
 		
-		
-		
 		$kernel = $this->container->get('kernel');
-		$config = file_get_contents($kernel->locateResource('@BRSPineappleBundle/Resources/config/pineapple.json'));
+		$config = file_get_contents($kernel->locateResource($this->config_path));
 		
 		$config_json = json_decode($config, true);
 		
