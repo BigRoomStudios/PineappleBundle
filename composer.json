@@ -1,5 +1,5 @@
 {
-    "name": "BigRoomStudios/PineappleBundle",
+    "name": "big-room-studios/pineapple-bundle",
     "type": "symfony-bundle",
     "description": "Symfony PineappleBundle",
     "keywords": ["brs", "pineapple", "block"],
