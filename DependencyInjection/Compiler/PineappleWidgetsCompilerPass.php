@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\Reference;
  *
  * @author Olivier Paradis <paradis@ekino.com>
  */
-class WidgetServiceCompilerPass implements CompilerPassInterface
+class PineappleWidgetsCompilerPass implements CompilerPassInterface
 {
     /**
      * @var string
@@ -21,7 +21,7 @@ class WidgetServiceCompilerPass implements CompilerPassInterface
     /**
      * @var string
      */
-    protected $tagName = 'brs_core.pineapple';
+    protected $tagName = 'brs.pineapple_widget';
 
     /**
      * {@inheritDoc}
@@ -45,6 +45,10 @@ class WidgetServiceCompilerPass implements CompilerPassInterface
 			
             $definition->addMethodCall('addPineapple', array($parameters));
         }
+		
+		// print('<pre>');
+		// print_r($taggedServices);
+		// print('</pre>');
 		
     }
 }

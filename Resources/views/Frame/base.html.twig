@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% if site.metaDescription or page.metaDescription %}
+    	<meta name="description" content="{{ page.metaDescription|default(site.metaDescription) }}">
+    {% endif %}
+    
+    {% if site.metaKeywords or page.metaKeyword %}
+    	<meta name="keywords" content="{{ site.metaKeywords }},{{ page.metaKeyword }}">
+    {% endif %}
+
+    <!-- Twitter card meta: https://dev.twitter.com/docs/cards -->
+    <meta name="twitter:card" content="summary">
+    <!-- Twitter account relative to site: <meta name="twitter:site" content="@TwitterUsername"> -->
+    <meta name="twitter:title" content="{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}">
+    <meta name="twitter:description" content="{{ page.metaDescription|default(site.metaDescription) }}">
+    <!-- Relative share image URL <meta name="twitter:image:src" content="http://mydomain.com/img/share.png"> -->
+
+    <!-- Facebook OpenGraph meta: https://developers.facebook.com/docs/opengraph/using-objects -->
+    <meta property="og:site_name" content="{{ site.title }}"/>
+    <meta property="og:title" content="{{ page.title|default(site.title) }}"/>
+    <meta property="og:description" content="{{ page.metaDescription|default(site.metaDescription) }}">
+    <!-- Relative share image URL <meta property="og:image" content="http://mydomain.com/img/share.png"/> -->
+    
+    <title>{{ site.title }}{% block title %}{% if page.title %} - {{ page.title }}{% endif %}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/lib/css/bootstrap.css">
+    <link rel="stylesheet" href="/lib/css/font-awesome.min.css">
+	
+    <script src="/lib/js/jquery.js"></script>
+    <script src="/lib/js/pineapple/pineapple.js"></script>
+    
+    {# include front end editor if a user is logged in #}
+    {% if app.user and (app.user.hasRole('ROLE_ADMIN') or app.user.hasRole('ROLE_SUPER_ADMIN')) %}
+      <link rel="stylesheet" href="/lib/css/pineapple.css">
+      <script type="text/javascript" src="/lib/js/pineapple/pineapple-editor.js"></script>
+      <script type="text/javascript" src="/lib/js/pineapple/pineapple-selection.js"></script>
+      <script type="text/javascript" src="/lib/js/pineapple/pineapple-widget.js"></script>
+      
+      {{ pineapple_initialize() }}
+      
+    {% endif %}
+	
+    {% block head %}{% endblock %}
+    
+    {% block google_analytics %}
+    	
+    	{% if site.gaCode and site.gaUrl %}
+	    	
+	    	<script>
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			  
+			  ga('create', '{{ site.gaCode }}', '{{ site.gaUrl }}');
+			  ga('send', 'pageview');
+			</script>
+			
+		{% endif %}
+		
+    {% endblock %}
+    
+  </head>
+
+  <body class="{{page.slug|default('index')}}">
+
+  {% if app.user and (app.user.hasRole('ROLE_ADMIN') or app.user.hasRole('ROLE_SUPER_ADMIN')) %}
+    {% include "BRSCoreBundle:Partials:pineapple.toolbar.html.twig" %}
+  {% endif %}
+  
+  {% block messages %}
+    {% include "BRSCoreBundle:Partials:messages.html.twig" %}
+  {% endblock %}
+  
+  {% block content %}{% endblock %}
+
+  {% block footer %}{% endblock %}
+
+  </body>
+  </html>

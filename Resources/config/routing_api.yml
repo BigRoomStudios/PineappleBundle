@@ -1,0 +1,3 @@
+pineapple_rest:
+    resource: "BRS\\PineappleBundle\\Controller\\PineappleController"
+    type:     rest

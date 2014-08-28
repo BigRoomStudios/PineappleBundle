@@ -18,7 +18,8 @@
         }
     ],
     "require": {
-        "sonata-project/block-bundle": "2.2.11"
+        "sonata-project/block-bundle": "2.2.11",
+        "friendsofsymfony/rest-bundle": "1.1.*"
     },
     "autoload": {
         "psr-4": { "BRS\\PineappleBundle\\": "" }

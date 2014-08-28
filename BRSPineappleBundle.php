@@ -5,7 +5,7 @@ namespace BRS\PineappleBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use BRS\PineappleBundle\DependencyInjection\Compiler\WidgetServiceCompilerPass;
+use BRS\PineappleBundle\DependencyInjection\Compiler\PineappleWidgetsCompilerPass;
 
 class BRSPineappleBundle extends Bundle
 {
@@ -17,7 +17,7 @@ class BRSPineappleBundle extends Bundle
 		
 		parent::build($container);
 		
-		$container->addCompilerPass(new WidgetServiceCompilerPass());
+		$container->addCompilerPass(new PineappleWidgetsCompilerPass());
 		
 	}
 	

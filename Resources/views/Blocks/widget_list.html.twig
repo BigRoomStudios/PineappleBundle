@@ -1,0 +1,27 @@
+{% extends "BRSCoreBundle:Blocks:base.html.twig" %}
+
+{% block block_classes %}{{ parent() }}{% endblock %}
+
+{% block block_content %}
+	
+	{#<pre>
+		{{ dump(pineapples) }}
+	</pre>#}
+	
+	<div class="pineapple-widget-category">
+		
+		{% for cat in categories %}
+			<button class="btn btn-info btn-hollow {% if cat == current_category %}active{% endif %} widget-category" data-cat="{{ cat }}">{{ cat }}</button>
+		{% endfor %}
+		
+	</div>
+	
+	{% include 'BRSPineappleBundle:Pineapple:pineapples.html.twig' %}
+	
+	<script type="text/javascript">
+		$(function() {
+			Pineapple.broadcast('register_widget_pineapple_list');
+		});
+	</script>
+	
+{% endblock %}

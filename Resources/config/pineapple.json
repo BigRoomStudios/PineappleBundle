@@ -2,6 +2,17 @@
   "id": "pineapple-main",
   "actions": [
     {
+      "label": "Content",
+      "action": "menu:pineapple-content",
+      "submenu": {
+        "id": "pineapple-content",
+        "actions": [
+          {"label": "Add new content", "action": "pane:brs.pineapple.widget_list"}
+        ]
+      },
+      "roles": ["ROLE_ADMIN", "ROLE_SUPER_ADMIN"]
+    },
+    {
       "label": "Editor",
       "action": "menu:pineapple-editor",
       "submenu": {

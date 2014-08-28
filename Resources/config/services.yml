@@ -11,3 +11,13 @@ services:
             configurator: @brs.configurator
         tags:
             - { name: twig.extension }
+    
+    brs.pineapple.widget_list:
+        class: BRS\PineappleBundle\Block\PineappleWidgetListBlockService
+        arguments:
+            name: brs.pineapple.widget_list
+            templating: @templating
+            container: @service_container
+        tags:
+            - { name: sonata.block }
+    
