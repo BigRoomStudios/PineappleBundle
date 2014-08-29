@@ -1,0 +1,19 @@
+{% extends "BRSCoreBundle:Blocks:base.html.twig" %}
+
+{% block block_classes %}{{ parent() }}{% endblock %}
+
+{% block block_content %}
+	
+    <div class="sonata-page-menu-container {{ settings.class }}">
+        {% if settings.title %}<h3>{{ settings.title }}</h3>{% endif %}
+
+        <ul class="sonata-page-menu-chilren-list">
+            {% if page %}
+                {% for child in page.children %}
+                    <li class="sonata-page-menu-children-element"><a href="{{ path(child) }}" title="{{ child.name|escape }}">{{ child.name }}</a></li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+    
+{% endblock %}
