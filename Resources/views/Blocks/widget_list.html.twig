@@ -8,7 +8,7 @@
 		{{ dump(pineapples) }}
 	</pre>#}
 	
-	<div class="pineapple-widget-category">
+	<div class="pineapple-widget-category text-center">
 		
 		{% for cat in categories %}
 			<button class="btn btn-info btn-hollow {% if cat == current_category %}active{% endif %} widget-category" data-cat="{{ cat }}">{{ cat }}</button>

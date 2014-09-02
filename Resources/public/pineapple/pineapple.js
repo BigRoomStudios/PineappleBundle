@@ -846,6 +846,16 @@ jQuery(function($){
     
     action.stopImmediatePropagation();
     
+  })
+
+  // Toggle the side bar open
+  .on("click", ".pineapple-toggle-width", function() {
+console.log(1);
+    if($('.pineapple-minimize').is(':visible')) {
+
+      $('html').css('margin-left', '10px');
+      $('pineapple > toolbar').css('right', $(window).width()-10);
+    }
   });
 
   window.onbeforeunload = function() { 

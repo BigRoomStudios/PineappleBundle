@@ -1,0 +1,47 @@
+{% extends "BRSCoreBundle:Blocks:base.html.twig" %}
+
+{% block block_content %}
+<section>
+  <header>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">{#{{site.title}}#}</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                {#{% if page %}
+                  {% for child in page.children %}
+                    <li class="{% if app.request.attributes.get('path') == child.url %}active{% endif %}"><a href="{{ path(child) }}" title="{{ child.name|escape }}">{{ child.name }}</a></li>
+                  {% endfor %}
+                {% endif %}#}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="splash container">
+
+      <div class="splash-inner row">
+        <div class="col-sm-8">
+          <h1>Welcome to the index</h1>
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <a href="#" class="btn btn-primary">Take action</a>
+        </div>
+      </div>
+    </div>
+  </header>
+</section>
+{% endblock %}

@@ -3,13 +3,7 @@
 	{% for pineapple in pineapples %}
 		
 		<li class="pineapple-widget-icon {{ pineapple.class }}" data-widget-type="{{ pineapple.id }}">
-			{% if pineapple.icon is defined %}
-				<img src="{{ pineapple.icon }}" class="media-object">
-			{% else %}
-				<div class="media-object">
-					<img src="/lib/images/core/widget-media.svg" class="missing-media">
-				</div>
-			{% endif %}
+			<img src="{{ pineapple.icon|default('/lib/images/core/no-image.png') }}" class="media-object" title="{{pineapple.title}}" alt="{{pineapple.title}}">
 		</li>
 		
 	{% endfor %}
