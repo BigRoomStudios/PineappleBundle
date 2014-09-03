@@ -1,0 +1,30 @@
+{{ form_start(form) }}
+
+	<div class="row actions">
+		<div class="col-sm-8"><h3>Block Settings</h3></div>
+		<div class="col-sm-4 text-right">
+			<button class="btn btn-primary">Save</button>
+			<button class="btn btn-info pineapple-settings-cancel">Cancel</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			
+			{{ form_widget(form) }}
+			
+			{# This is to get around some default functionality of the Sonata Page Bundle.  If you redirect while in "Editor mode", they display a warning page
+			   https://github.com/sonata-project/SonataPageBundle/blob/master/Listener/ResponseListener.php#L97
+			#}
+			<input id="page__sonata_page_skip" type="hidden" value="1" name="_sonata_page_skip">
+			
+			{# examples to break this down more 
+				
+				http://symfony.com/doc/2.3/book/forms.html#form-theming
+				
+				{{ form_widget(form.name) }}
+				
+			#}
+			
+		</div>
+	</div>
+{{ form_end(form) }}

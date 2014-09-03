@@ -13,64 +13,12 @@
       "roles": ["ROLE_ADMIN", "ROLE_SUPER_ADMIN"]
     },
     {
-      "label": "Editor",
-      "action": "menu:pineapple-editor",
-      "submenu": {
-        "id": "pineapple-editor",
-        "actions": [
-          {"label": "H1", "action": "mod:h1"},
-          {"label": "H2", "action": "mod:h2"},
-          {"label": "H3", "action": "mod:h3"},
-          {"label": "P", "action": "mod:p"},
-          {
-            "label": "Font Size", "action": "menu:pineapple-editor-fontsize", "hide_label": true,
-            "submenu": {
-              "id": "pineapple-editor-fontsize",
-              "actions": [
-                {"label": "smallest", "action": "mod:font-size"},
-                {"label": "small", "action": "mod:font-size"},
-                {"label": "medium", "action": "mod:font-size"},
-                {"label": "large", "action": "mod:font-size"},
-                {"label": "extra-large", "action": "mod:font-size"}
-              ]
-            }
-          },
-          {"label": "Bold", "action": "mod:bold", "icon": "fa fa-bold", "hide_label": true },
-          {"label": "Italicize", "action": "mod:italic", "icon": "fa fa-italic", "hide_label": true },
-          {"label": "Underline", "action": "mod:underline", "icon": "fa fa-underline", "hide_label": true },
-          {"label": "Fore Color", "action": "mod:font-color", "icon": "fa fa-font", "hide_label": true, "append": "<input type='color' class='pineapple-color-picker'>" },
-          {"label": "Justify Left", "action": "mod:justifyLeft", "icon": "fa fa-align-left", "hide_label": true },
-          {"label": "Centered", "action": "mod:justifyCenter", "icon": "fa fa-align-center", "hide_label": true },
-          {"label": "Justify Right", "action": "mod:justifyRight", "icon": "fa fa-align-right", "hide_label": true },
-          {"label": "Unordered List", "action": "mod:insertUnorderedList", "icon": "fa fa-list-ul", "hide_label": true },
-          {"label": "Ordered List", "action": "mod:insertOrderedList", "icon": "fa fa-list-ol", "hide_label": true },
-          {"label": "Link", "action": "mod:link", "icon": "fa fa-link", "hide_label": true},
-          {"label": "Un-link", "action": "mod:unlink", "icon": "fa fa-chain-broken", "hide_label": true},
-          {"label": "Image", "action": "mod:media", "icon": "fa fa-picture-o", "hide_label": true }
-        ]
-      },
-      "roles": ["ROLE_ADMIN", "ROLE_SUPER_ADMIN"]
-    },
-    {
       "label": "Page",
       "action": "menu:pineapple-page",
       "submenu": {
         "id": "pineapple-page",
         "actions": [
           {"label": "Add new page", "action": "pane:brs.block.service.form/form_type=page&data_class=Application\\Sonata\\PageBundle\\Entity\\Page&page_id=null"},
-          {
-            "label": "Add new row",
-            "action": "menu:pineapple-page-new-row",
-            "submenu": {
-              "id": "pineapple-page-new-row",
-              "actions": [
-                {"label": "Single column", "action": "add:row/1"},
-                {"label": "Two columns", "action": "add:row/2"},
-                {"label": "Three columns", "action": "add:row/3"},
-                {"label": "Four columns", "action": "add:row/4"}
-              ]
-            }
-          },
           {"label": "Settings", "action": "pane:brs.block.service.form/form_type=page&data_class=Application\\Sonata\\PageBundle\\Entity\\Page"},
           {"label": "List", "action": "pane:brs.block.service.admin_list/admin_service=sonata.page.admin.page"}
         ]

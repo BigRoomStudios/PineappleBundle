@@ -1,0 +1,57 @@
+{% extends "BRSCoreBundle:Blocks:base.html.twig" %}
+
+{% block block_classes %}ajaxy{% endblock %}
+
+{% block block_content %}
+	
+    {% if block.settings.form_heading is defined %}<h2>{{block.settings.form_heading}}</h2>{% endif %}
+    
+	{{ form_start(form) }}
+	
+	{{ form_widget(form) }}
+	
+	{{ form_end(form) }}
+	
+        <script>
+            
+            $(function() {
+                
+                var blockID = {{ block.id }};
+                var form = $('[data-id='+blockID+']').find('form').first();
+                
+                form.submit(function(e) {
+                    
+                    var $form = $(this);
+                    
+                    // don't submit the form
+                    e.preventDefault();
+                    
+                    /*
+                     * Get all form values
+                     */
+                    var values = {};
+                    $.each( $form.serializeArray(), function(i, field) {
+                        values[field.name] = field.value;
+                    });
+                   
+                    /*
+                     * Throw the form values to the server!
+                     */
+                    $.ajax({
+                        type        : $form.attr( 'method' ),
+                        url         : $form.attr( 'action' ),
+                        data        : values,
+                        success     : function(data) {
+                            Pineapple.broadcast('search-complete', data);
+                        }
+                    });
+                    
+                    return false;
+                    
+                });
+                
+            });
+            
+        </script>
+        
+{% endblock %}

@@ -1,3 +1,10 @@
 pineapple_rest:
     resource: "BRS\\PineappleBundle\\Controller\\PineappleController"
     type:     rest
+    
+widget_rest:
+    resource: "BRS\\PineappleBundle\\Controller\\BlockController"
+    type:     annotation
+    defaults: {_format: json}
+    options:
+        expose: true
