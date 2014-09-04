@@ -1,6 +1,19 @@
 {% extends "BRSCoreBundle:Blocks:base.html.twig" %}
 
 {% block block_content %}
+<style>
+.navigation {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 30px;
+}
+
+.navigation h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+</style>
 <section>
   <header>
     <div class="container">
@@ -8,13 +21,14 @@
         <div class="col-md-8 col-md-offset-2">
           <div class="navigation">
             <ul class="nav nav-pills pull-right">
-              {#{% if page %}
+                <li class="{% if app.request.attributes.get('path')=='/' %}active{% endif %}"><a href="/">Home</a></li>
+              {% if page is defined %}
                 {% for child in page.children %}
                   <li class="{% if app.request.attributes.get('path') == child.url %}active{% endif %}"><a href="{{ path(child) }}" title="{{ child.name|escape }}">{{ child.name }}</a></li>
                 {% endfor %}
-              {% endif %}#}
+              {% endif %}
             </ul>
-            <h3 class="text-muted">{#{{site.title}}#}</h3>
+            <h3 class="text-muted">Site</h3>
           </div>
 
           <div class="jumbotron">
