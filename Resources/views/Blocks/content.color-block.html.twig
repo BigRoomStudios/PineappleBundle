@@ -11,6 +11,10 @@
 .color-block {
     padding: 40px 0;
 }
+
+.color-block h1, .color-block h2, .color-block h3 {
+    margin-top: 0;
+}
 </style>
 
 <div class="color-block" style="background:{{block.settings.color|default('#3498db')}};">
@@ -23,6 +27,9 @@
                 {% else %}
                     <h3>Editable content block</h3>
                 {% endif %}
+            </div>
+            <div class="col-md-4">
+                
             </div>
         </div>
     </div>
