@@ -1,0 +1,30 @@
+{% extends "BRSCoreBundle:Blocks:base.html.twig" %}
+
+{% block block_classes %}{{ parent() }}{% endblock %}
+
+{% block block_content %}
+<style>
+.color-block, .color-block * {
+    color: white;
+}
+
+.color-block {
+    padding: 40px 0;
+}
+</style>
+
+<div class="color-block" style="background:{{block.settings.color|default('#3498db')}};">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8">
+                {% if block.settings.content is defined %}
+                    {{block.settings.content|raw}}
+                {% else %}
+                    <h3>Editable content block</h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

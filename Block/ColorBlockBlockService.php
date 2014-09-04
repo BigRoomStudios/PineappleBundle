@@ -13,17 +13,17 @@ use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\BlockBundle\Model\BlockInterface;
 use Symfony\Component\Templating\EngineInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-
 /**
  * 
  */
-class ContentFeaturetteBlockService extends base {
+class ColorBlockBlockService extends base {
   
   public function buildEditForm(FormMapper $formMapper, BlockInterface $block) {
     
     $formMapper->add('settings', 'sonata_type_immutable_array', array(
       'label' => '',
       'keys' => array(
+        array('color', 'text', array('required' => false, 'label' => 'Background color')),
         array('content', 'textarea', array(
           'attr' => array(
             'class' => 'tinymce',
@@ -40,11 +40,10 @@ class ContentFeaturetteBlockService extends base {
     parent::setDefaultSettings($resolver);
     
     $resolver->setDefaults(array(
-      'template' => 'BRSPineappleBundle:Blocks:content.featurette.html.twig',
-      'content' => '<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It will blow your mind.</span></h2><p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>',
+      'template' => 'BRSPineappleBundle:Blocks:content.color-block.html.twig',
+      'color' => '#3498db',
+      'content' => '<h2>Editable color block section</h2>',
     ));
   }
   
 }
-
-?>

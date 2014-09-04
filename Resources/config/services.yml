@@ -64,3 +64,14 @@ services:
         tags:
             - { name: sonata.block }
             - { name: brs.pineapple_widget, categories: "Content", class: text, title: "Content Featurette", description: "Content Featurette", icon: "/lib/images/core/content.featurette.png" }
+
+    brs.pineapple.service.content.color_block:
+        class: BRS\PineappleBundle\Block\ColorBlockBlockService
+        arguments:
+            name: brs.pineapple.service.content.color_block
+            templating: @templating
+            selector: @sonata.page.site.selector
+            cms_manager: @sonata.page.cms_manager_selector
+        tags:
+            - { name: sonata.block }
+            - { name: brs.pineapple_widget, categories: "Content", class: text, title: "Color Block", description: "Color Block" }
