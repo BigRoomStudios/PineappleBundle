@@ -1,0 +1,51 @@
+{% block textarea_widget %}
+{% spaceless %}
+	<textarea {{ block('text_area_widget_attributes') }}>{{ value }}</textarea>
+{% endspaceless %}
+{% endblock textarea_widget %}
+
+{% block text_area_widget_attributes %}
+    name="{{ full_name }}"
+    {%- if read_only %} readonly="readonly"{% endif -%}
+    {%- if disabled %} disabled="disabled"{% endif -%}
+    {%- if required %} required="required"{% endif -%}
+    {%- for attrname, attrvalue in attr -%}
+        {{- " " -}}
+        {%- if attrname in ['placeholder', 'title'] -%}
+            {{- attrname }}="{{ attrvalue|trans({}, translation_domain) }}"
+        {%- elseif attrvalue is sameas(true) -%}
+            {{- attrname }}="{{ attrname }}"
+        {%- elseif attrvalue is not sameas(false) -%}
+            {{- attrname }}="{{ attrvalue }}"
+        {%- endif -%}
+    {%- endfor -%}
+{% endblock text_area_widget_attributes %}
+
+{% block sonata_media_type_widget %}
+	
+	{% if value is not empty and value.providerReference %}
+		<img class="media-thumb" src="{% path value, 'big' %}">
+	{% else %}
+		<img class="media-thumb" src="" title="No Image" alt="No Image">
+	{% endif %}
+	
+	<button class="btn btn-primary open-media-library">Select Image</button>
+	
+	<input type="hidden" name="{{ full_name }}" value="{{ value.id|default('') }}">
+	
+	{#
+    {% if value is not empty and value.providerReference %}
+        
+        <img src="{% path value, 'big' %}" class="profile-form-img">
+        <div class="img-name">{{ value.name }}</div>
+        
+    {% else %}
+        
+        <div data-input="{{ id }}" class="file-input-trigger img-placeholder">Add image</div>
+        <div class="img-name"></div>
+        <div id="file_input_container_{{ id }}" class="file-input-input">{{ block('form_widget') }}</div>
+        
+    {% endif %}
+    #}
+    
+{% endblock sonata_media_type_widget %}

@@ -1,0 +1,56 @@
+{% extends "BRSCoreBundle:Blocks:base.html.twig" %}
+
+{% block block_content %}
+	
+	{% if list != null %}
+		
+		{% block list %}
+			
+			<div class="pineapple-list">
+				
+				{% for item in list %}
+					
+					{% block list_item %}
+						<div class="list-item"><p>item - {{ item.id }}</p></div>
+					{% endblock %}
+					
+				{% endfor %}
+				
+			</div>
+			
+		{% endblock %}
+		
+		<script>
+		{% block list_js %}
+				
+			{% if settings.selectable is defined and settings.selectable %}
+					
+				$(function() {
+					$(document).on("click", ".pineapple-list .list-item", function(e) {
+						
+						if($(this).data('action')) {
+
+							var action = Pineapple.parseAction(true, $(this).data("action"));
+
+							if(action.length) {
+
+								Pineapple.broadcast(action[1], [ $(this), action[2] ]);
+
+								// Prevents event bubbling
+								e.stopImmediatePropagation();
+							}
+						}
+						
+					});
+				});
+				
+			{% endif %}
+			
+		{% endblock %}
+		</script>
+		
+	{% else %}
+		<p>No list data</p>
+	{% endif %}
+	
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "BRSPineappleBundle:Blocks:base.html.twig" %}
+
+{% block block_content %}
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12"> 
+          {{block.settings.content|raw}}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

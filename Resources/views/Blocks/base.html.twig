@@ -1,0 +1,13 @@
+{% block block_container %}
+	
+	<div 
+		class="pineapple-block {% if block.settings.width is defined %}{{ block.settings.width }}{% endif %} {% if block.settings.class is defined %}{{ block.settings.class }}{% endif %} {% block block_classes %}{% endblock %}"
+		data-id="{{ block.id }}"
+		data-settings='{{ block.settings|json_encode() }}'
+	>
+		
+		{% block block_content %}{% endblock %}
+		
+	</div>
+	
+{% endblock %}

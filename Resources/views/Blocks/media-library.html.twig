@@ -1,0 +1,19 @@
+{% extends "BRSPineappleBundle:Blocks:list.html.twig" %}
+
+{% block list %}
+	
+	<div class="row media-library">
+		
+		{% for item in list %}
+			{% block list_item %}
+				<div class="list-item media-item col-sm-3 text-center" data-id="{{ item.id }}" data-url="{% path item, 'small' %}">
+					{% media item, 'small' %}
+				</div>
+			{% endblock %}
+		{% endfor %}
+		
+	</div>
+	
+	<div><a target="brs_admin" href="{% if app.environment == 'dev' %}/app_dev.php{% endif %}/admin/sonata/media/media/create?provider=sonata.media.provider.image&context=default">Upload new image</a></div>
+	
+{% endblock %}

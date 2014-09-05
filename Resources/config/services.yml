@@ -12,6 +12,24 @@ services:
         tags:
             - { name: twig.extension }
     
+    brs.pineapple.widget.media_library:
+        class: BRS\PineappleBundle\Block\MediaLibraryBlockService
+        arguments:
+            name: brs.pineapple.widget.media_library
+            templating: @templating
+            container: @service_container
+        tags:
+            - { name: sonata.block }
+    
+    brs.pineapple.widget.text:
+        class: BRS\PineappleBundle\Block\TextBlockService
+        arguments:
+            name: brs.pineapple.widget.text
+            templating: @templating
+        tags:
+            - { name: sonata.block }
+            - { name: brs.pineapple_widget, categories: "Content", class: text, title: Text, description: "An editable text box", icon: "/lib/images/core/content.text.png" }
+    
     brs.pineapple.widget_list:
         class: BRS\PineappleBundle\Block\PineappleWidgetListBlockService
         arguments:

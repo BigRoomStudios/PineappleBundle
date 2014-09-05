@@ -18,10 +18,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * 
  */
 class HeaderSplashBlockService extends base {
-  
-  public function setDefaultSettings(OptionsResolverInterface $resolver) {
     
-    public function buildEditForm(FormMapper $formMapper, BlockInterface $block) {
+  public function buildEditForm(FormMapper $formMapper, BlockInterface $block) {
     
     $formMapper->add('settings', 'sonata_type_immutable_array', array(
       'label' => '',
@@ -36,7 +34,9 @@ class HeaderSplashBlockService extends base {
     ));
     
   }
-
+  
+  public function setDefaultSettings(OptionsResolverInterface $resolver) {
+  	
     parent::setDefaultSettings($resolver);
     
     $resolver->setDefaults(array(

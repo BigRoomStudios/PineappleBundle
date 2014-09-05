@@ -99,6 +99,7 @@ class BlockController extends FosRestController
 	 * Transforms a selection widget into the given type
 	 * 
 	 * @Post("/api/block/{id}/settings.{_format}", name="api_post_widget_settings", defaults={"_format"="html"})
+	 * @View(template="BRSPineappleBundle:Form:test.html.twig")
 	 * 
 	 * @ApiDoc(
 	 *  section="Widget",
@@ -137,8 +138,16 @@ class BlockController extends FosRestController
 			
 			return $this->handleView($view);
 			
+	    } else {
+	    	
+	    	foreach($form->getErrors() as $error) {
+	    		print($error->getMessage());
+			}
+			
+			die('test');
+	    	
 	    }
-		
+	    
 	}
 	
 	private function getBlock($id) {
