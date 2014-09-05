@@ -15,7 +15,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Site</a>
+              <a class="navbar-brand" href="#">{% if page is defined %}{{ page.site.name }}{% endif %}</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">

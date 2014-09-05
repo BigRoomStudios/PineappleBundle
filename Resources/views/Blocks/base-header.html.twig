@@ -5,7 +5,7 @@
 {% block block_content %}
 	
     <div class="sonata-page-menu-container {{ settings.class }}">
-        {% if settings.title %}<h3>{{ settings.title }}</h3>{% endif %}
+        <h3>{% if page is defined %}{{ page.site.name }}{% endif %}</h3>
 
         <ul class="sonata-page-menu-chilren-list">
             {% if page %}
