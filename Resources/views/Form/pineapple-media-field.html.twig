@@ -3,11 +3,11 @@
 	{% if media is defined %}
 		<img class="media-thumb" src="{% path media, 'small' %}">
 	{% else %}
-		<img class="media-thumb" src="" title="No Image" alt="No Image">
+		<img class="media-thumb" src="">
 	{% endif %}
 	
 	<button class="btn btn-primary open-media-library">Select Image</button>
 	
-	<input class="media-id" type="hidden" name="{{ full_name }}" value="{{ value.id|default('') }}">
+	<input class="media-id" type="hidden" name="{{ full_name }}" value="{{ value }}">
 	
 {% endblock %}

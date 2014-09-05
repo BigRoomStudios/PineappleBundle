@@ -7,7 +7,7 @@
       {% if block.settings.flip=='y' %}
         <div class="col-md-5">
           {% if block.settings.media %}
-            <img class="featurette-image img-responsive" class="media-thumb" src="{% path block.settings.media, 'big' %}">
+            <img class="featurette-image img-responsive" src="{% path block.settings.media, 'big' %}"  title="{{ block.settings.media_title|default('') }}" alt="{{ block.settings.media_alt|default('') }}">
           {% else %}
             <img class="featurette-image img-responsive" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjI1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjMxcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NTAweDUwMDwvdGV4dD48L3N2Zz4=">
           {% endif %}
@@ -17,7 +17,7 @@
         <div class="col-md-7">{{block.settings.content|raw}}</div>
         <div class="col-md-5">
           {% if block.settings.media %}
-            <img class="featurette-image img-responsive" class="media-thumb" src="{% path block.settings.media, 'big' %}">
+            <img class="featurette-image img-responsive" src="{% path block.settings.media, 'big' %}"  title="{{ block.settings.media_title|default('') }}" alt="{{ block.settings.media_alt|default('') }}">
           {% else %}
             <img class="featurette-image img-responsive" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjI1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjMxcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NTAweDUwMDwvdGV4dD48L3N2Zz4=">
           {% endif %}

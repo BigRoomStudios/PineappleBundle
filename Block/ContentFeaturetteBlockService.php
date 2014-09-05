@@ -47,6 +47,14 @@ class ContentFeaturetteBlockService extends BaseBlockService {
 					'required' => false,
 					'label' => 'Media',
 				)),
+				array('media_title', 'text', array(
+					'required' => false,
+					'label' => 'Title',
+				)),
+				array('media_alt', 'text', array(
+					'required' => false,
+					'label' => 'Alt',
+				)),
 			)
 		));
 		
@@ -61,6 +69,8 @@ class ContentFeaturetteBlockService extends BaseBlockService {
 			'content' => '<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It will blow your mind.</span></h2><p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>',
 			'flip' => 'n',
 			'media'    => null,
+			'media_title' => null,
+			'media_alt' => null,
 		));
 		
 	}
