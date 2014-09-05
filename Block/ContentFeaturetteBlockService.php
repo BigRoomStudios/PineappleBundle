@@ -2,7 +2,7 @@
 
 namespace BRS\PineappleBundle\Block;
 
-use Sonata\PageBundle\Block\ChildrenPagesBlockService as base;
+use Sonata\BlockBundle\Block\BaseBlockService;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,12 +12,16 @@ use Sonata\AdminBundle\Validator\ErrorElement;
 
 use Sonata\BlockBundle\Model\BlockInterface;
 use Symfony\Component\Templating\EngineInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * 
  */
-class ContentFeaturetteBlockService extends base {
+class ContentFeaturetteBlockService extends BaseBlockService {
+	
+	public function __construct($name, EngineInterface $templating, $media_manager) {
+		parent::__construct($name, $templating);
+		$this->media_manager = $media_manager;
+	}
 	
 	/**
 	 * {@inheritdoc}
@@ -39,11 +43,9 @@ class ContentFeaturetteBlockService extends base {
 						'id' => 'tinymce_'.$block->getId(),
 					),
 				)),
-				array('media', 'sonata_media_type', array(
-					'provider' => 'sonata.media.provider.image',
-					'context' => 'default',
+				array('media', 'pineapple_media', array(
 					'required' => false,
-					'label' => false,
+					'label' => 'Media',
 				)),
 			)
 		));
@@ -62,5 +64,41 @@ class ContentFeaturetteBlockService extends base {
 		));
 		
 	}
+	
+	/**
+	 * {@inheritdoc}
+	 */
+	public function load(BlockInterface $block) {
+		
+		$media = $block->getSetting('media', null);
+		
+		if ($media) {
+			$media = $this->media_manager->findOneBy(array('id' => $media));
+		}
+		
+		$block->setSetting('media', $media);
+	}
+	
+	/**
+	 * {@inheritdoc}
+	 */
+	public function prePersist(BlockInterface $block) {
+		$block->setSetting('media', is_object($block->getSetting('media')) ? $block->getSetting('media')->getId() : null);
+	}
+	
+	/**
+	 * {@inheritdoc}
+	 */
+	public function preUpdate(BlockInterface $block) {
+		$block->setSetting('media', is_object($block->getSetting('media')) ? $block->getSetting('media')->getId() : null);
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+    public function validateBlock(ErrorElement $errorElement, BlockInterface $block)
+    {
+
+    }
 	
 }

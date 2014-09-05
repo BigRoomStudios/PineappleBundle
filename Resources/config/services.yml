@@ -21,6 +21,13 @@ services:
         tags:
             - { name: sonata.block }
     
+    brs.pineapple.form.type.pineapple_media:
+        class: BRS\PineappleBundle\Form\Type\PineappleMediaType
+        arguments:
+            container: @service_container
+        tags:
+            - { name: form.type, alias: pineapple_media }
+    
     brs.pineapple.widget.text:
         class: BRS\PineappleBundle\Block\TextBlockService
         arguments:
@@ -77,8 +84,7 @@ services:
         arguments:
             name: brs.pineapple.service.content.featurette
             templating: @templating
-            selector: @sonata.page.site.selector
-            cms_manager: @sonata.page.cms_manager_selector
+            media_manager: @sonata.media.manager.media
         tags:
             - { name: sonata.block }
             - { name: brs.pineapple_widget, categories: "Content", class: text, title: "Content Featurette", description: "Content Featurette", icon: "/lib/images/core/content.featurette.png" }

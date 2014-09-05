@@ -1,0 +1,13 @@
+{% block pineapple_media_widget %}
+	
+	{% if media is defined %}
+		<img class="media-thumb" src="{% path media, 'small' %}">
+	{% else %}
+		<img class="media-thumb" src="" title="No Image" alt="No Image">
+	{% endif %}
+	
+	<button class="btn btn-primary open-media-library">Select Image</button>
+	
+	<input class="media-id" type="hidden" name="{{ full_name }}" value="{{ value.id|default('') }}">
+	
+{% endblock %}

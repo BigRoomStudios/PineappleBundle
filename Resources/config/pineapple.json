@@ -26,18 +26,6 @@
       "roles": ["ROLE_ADMIN", "ROLE_SUPER_ADMIN"]
     },
     {
-      "label": "Save",
-      "action": "menu:pineapple-save",
-      "submenu": {
-        "id": "pineapple-save",
-        "actions": [
-          {"label": "Save as draft", "action": "save:draft"},
-          {"label": "Publish to public", "action": "save:publish"}
-        ]
-      },
-      "roles": ["ROLE_ADMIN", "ROLE_SUPER_ADMIN"]
-    },
-    {
       "label": "Site",
       "action": "menu:pineapple-site",
       "submenu": {
