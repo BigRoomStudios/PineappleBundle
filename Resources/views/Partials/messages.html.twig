@@ -1,0 +1,15 @@
+<div class="message-center">
+    
+  {% for flash_type in app.session.flashbag.all() %}
+    
+    {% for key,message in flash_type %}
+      
+      <div class="flash-notice {{ key }}">
+        {{ message }}
+      </div>
+      
+    {% endfor %}
+    
+  {% endfor %}
+  
+</div>

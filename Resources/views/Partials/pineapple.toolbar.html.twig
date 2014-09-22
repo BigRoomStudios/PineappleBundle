@@ -1,0 +1,37 @@
+<pineapple>
+  <current page-id="{{ page.id }}" site-id="{{ site.id }}"></current>
+  <toolbar>
+    <div class="pineapple-toggle-width"><i class="fa fa-minus-circle pineapple-minimize"></i><i class="fa fa-plus-circle pineapple-maximize"></i></div>
+    <div class="pineapple-toolbar-heading">
+      <h3>BRS Core</h3>
+      <p>Logged in as {{app.user}}. <a href="/logout">Logout.</a></p>
+      <div class="row">
+        <div class="col-md-6"><button class="btn btn-info btn-hollow btn-block pineapple-publish">Publish</button></div>
+        <div class="col-md-6"><p class="pineapple-state" data-state="current">Current.</p></div>
+      </div>
+    </div>
+  </toolbar>
+  <pane>
+    <controls>
+      <li class="pineapple-pane-back pineapple-pane-disabled"><i class="fa fa-chevron-left"></i></li>
+      <li class="pineapple-pane-forward pineapple-pane-disabled"><i class="fa fa-chevron-right"></i></li>
+      <li class="pull-right pineapple-pane-close"><i class="fa fa-times"></i></li>
+    </controls>
+    <content>
+      <title></title>
+      <inner></inner>
+    </content>
+    <confirm>
+      <button class="pineapple-btn pineapple-cancel" type="button">Cancel</button>
+      <button class="pineapple-btn pineapple-confirm" type="button">Okay</button>
+    </confirm>
+  </pane>
+  <modal>
+    <controls>
+      <li class="pull-right pineapple-modal-close" data-action="cancel"><i class="fa fa-times"></i></li>
+      <li class="pull-right pineapple-modal-accept" data-action="confirm"><i class="fa fa-check"></i></li>
+    </controls>
+    <content></content>
+  </modal>
+  <dimmer></dimmer>
+</pineapple>
