@@ -12,6 +12,13 @@ services:
         tags:
             - { name: twig.extension }
     
+    brs.page.manager.block:
+        class: BRS\PineappleBundle\Manager\BlockManager
+        arguments:
+            container: @service_container
+            entityManager: "@doctrine"
+            class: %sonata.page.block.class%
+            
     brs.pineapple.widget.media_library:
         class: BRS\PineappleBundle\Block\MediaLibraryBlockService
         arguments:

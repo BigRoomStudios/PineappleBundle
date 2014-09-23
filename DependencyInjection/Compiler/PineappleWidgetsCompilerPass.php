@@ -43,7 +43,8 @@ class PineappleWidgetsCompilerPass implements CompilerPassInterface
 			
 			$parameters = array_merge($parameters, current($attributes));
 			
-            $definition->addMethodCall('addPineapple', array($parameters));
+            $definition->addMethodCall('addPineapple', array($id, $parameters));
+			
         }
 		
 		// print('<pre>');
