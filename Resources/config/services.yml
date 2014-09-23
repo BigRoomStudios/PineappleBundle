@@ -5,6 +5,33 @@ services:
         arguments:
             container: @service_container
     
+    ####
+    ####  FORMS
+    ####
+    form.type.page:
+        class: BRS\PineappleBundle\Form\Type\PageType
+        arguments:
+            router: "@router"
+        tags:
+            - { name: form.type, alias: page }
+    
+    form.type.site:
+        class: BRS\PineappleBundle\Form\Type\SiteType
+        arguments:
+            router: "@router"
+        tags:
+            - { name: form.type, alias: site }
+    
+    brs.pineapple.form.type.pineapple_media:
+        class: BRS\PineappleBundle\Form\Type\PineappleMediaType
+        arguments:
+            container: @service_container
+        tags:
+            - { name: form.type, alias: pineapple_media }
+    
+    ###
+    ###  Twig Extensions
+    ###
     brs.twig.pineapple_extension:
         class: BRS\PineappleBundle\Twig\PineappleExtension
         arguments:
@@ -12,13 +39,19 @@ services:
         tags:
             - { name: twig.extension }
     
+    ###
+    ###  Managers
+    ###
     brs.page.manager.block:
         class: BRS\PineappleBundle\Manager\BlockManager
         arguments:
             container: @service_container
             entityManager: "@doctrine"
             class: %sonata.page.block.class%
-            
+    
+    ###
+    ###  Widgets
+    ###
     brs.pineapple.widget.media_library:
         class: BRS\PineappleBundle\Block\MediaLibraryBlockService
         arguments:
@@ -27,13 +60,6 @@ services:
             container: @service_container
         tags:
             - { name: sonata.block }
-    
-    brs.pineapple.form.type.pineapple_media:
-        class: BRS\PineappleBundle\Form\Type\PineappleMediaType
-        arguments:
-            container: @service_container
-        tags:
-            - { name: form.type, alias: pineapple_media }
     
     brs.pineapple.widget.text:
         class: BRS\PineappleBundle\Block\TextBlockService
