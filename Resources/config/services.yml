@@ -86,6 +86,17 @@ services:
             - { name: sonata.block }
             - { name: brs.pineapple_widget, categories: "Headers", class: text, title: "Header Splash", description: "Header Splash" }
 
+    brs.pineapple.service.header.full_image:
+        class: BRS\PineappleBundle\Block\HeaderFullImageBlockService
+        arguments:
+            name: brs.pineapple.service.header.full_image
+            templating: @templating
+            selector: @sonata.page.site.selector
+            cms_manager: @sonata.page.cms_manager_selector
+        tags:
+            - { name: sonata.block }
+            - { name: brs.pineapple_widget, categories: "Headers", class: text, title: "Header Full Image", description: "Header Full Image" }
+
     brs.pineapple.service.content.featurette:
         class: BRS\PineappleBundle\Block\ContentFeaturetteBlockService
         arguments:

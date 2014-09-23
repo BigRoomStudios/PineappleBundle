@@ -1,0 +1,41 @@
+{% extends "BRSCoreBundle:Blocks:base.html.twig" %}
+
+{% block block_content %}
+<style>
+.full-img-bg {
+  background-color: #eee;
+  display: table;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+}
+
+.full-img-bg > .inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+</style>
+<section class="full-img-bg">
+    <div class="inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 text-center">
+            {% if block.settings.media %}
+              <img src="{% path block.settings.media, 'big' %}"  title="{{ block.settings.media_title|default('') }}" alt="{{ block.settings.media_alt|default('') }}">
+            {% else %}
+              <img src="http://placehold.it/150x150">
+            {% endif %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 text-center">
+            {{block.settings.content|raw}}
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}
