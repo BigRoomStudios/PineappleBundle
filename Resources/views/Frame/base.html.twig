@@ -42,12 +42,14 @@
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 	    
         <script src="/lib/js/jquery.js"></script>
+        <script src="/lib/js/jquery-ui.min.js"></script>
         <script src="/lib/js/pineapple/pineapple.js"></script>
         
         {# include front end editor if a user is logged in #}
         {% if app.user and (app.user.hasRole('ROLE_ADMIN') or app.user.hasRole('ROLE_SUPER_ADMIN')) %}
+          
           <link rel="stylesheet" href="/lib/css/pineapple.css">
-          <script src="/lib/js/jquery-ui.min.js"></script>
+          
           <script type="text/javascript" src="/lib/js/pineapple/pineapple-editor.js"></script>
           <script type="text/javascript" src="/lib/js/pineapple/pineapple-selection.js"></script>
           <script type="text/javascript" src="/lib/js/pineapple/pineapple-widget.js"></script>
