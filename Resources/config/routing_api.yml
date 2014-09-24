@@ -8,3 +8,9 @@ widget_rest:
     defaults: {_format: json}
     options:
         expose: true
+        
+page_rest:
+    resource: "BRS\\PineappleBundle\\Controller\\PageController"
+    type:     rest
+    options:
+        expose: true
