@@ -78,8 +78,6 @@ class PageController extends FosRestController
 		
 		//assume the first child is the main block container...UPDATE
 		$parent = $this->getDoctrine()->getRepository('ApplicationSonataPageBundle:Block')->find($parent_id);
-		//$page_blocks = $page->getBlocks();
-		//$parent = $page_blocks->first();
 		
 		//create the new container
 		$container = $blockManager->createContainerBlock($page);
@@ -120,81 +118,6 @@ class PageController extends FosRestController
 		
     }
 	
-    /**
-     * THIS FUNCTION SUCKS!
-     *
-     * @return Form form instance
-     * 
-     * @View()
-     */
-    public function newContentAction($page, $type) {
-    	
-		try {
-			
-			//initialize some shit
-			$html = '';
-			$blockManager = $this->container->get('brs.page.manager.block');
-			
-			//get the page
-			$page = $this->getDoctrine()->getRepository('ApplicationSonataPageBundle:Page')->find($page);
-			
-			//assume the first child is the main block container...UPDATE
-			$page_blocks = $page->getBlocks();
-			
-			$parent = $page_blocks->first();
-			
-			if($type == 'image') {
-				
-				//create the media block
-				$block = $blockManager->createMediaBlock();
-				
-			} elseif ($type == 'media') {
-				
-				//create a media block
-				$block = $blockManager->createMediaBlock();
-				
-			} else {
-				
-				//create a new content block
-				$block = $blockManager->createTextBlock($type);
-				
-			}
-			
-			$parent->addChildren($block);
-	        $block->setPosition(count($page->getBlocks()) + 1);
-	        $block->setEnabled(true);
-	        $block->setPage($page);
-			
-			//save the new block
-			$em = $this->getDoctrine()->getEntityManager();
-			$em->persist($block);
-			$em->persist($page);
-			$em->flush();
-			
-			//render the template
-			$html = $this->container->get('templating')->render($block->getSetting('template'), array(
-	            'block'     => $block,
-	            //'settings'  => $block->getSettings()
-	        ));
-				
-			//get the html code
-			$result = array(
-				'success' => true,
-				'html' => $html,
-				'id' => $block->getId(),
-				'classes' => $block->getSetting('classes'),
-			);
-			
-	        return $result;
-			
-		} catch(\Exception $e) {
-			
-			throw new HttpException(500, $e->getMessage());
-			
-		}
-		
-    }
-	
 	/**
 	 * Get a list of content types.  Shitty hard coded for now to keep simple and flexible
 	 */
@@ -207,21 +130,7 @@ class PageController extends FosRestController
 	}
 	
 	public function getPublishAction($site_id) {
-		/*$snapshotManager = $this->get('sonata.page.manager.snapshot');
-        $transformer = $this->get('sonata.page.transformer');
-
-        $page = $this->getDoctrine()->getRepository('ApplicationSonataPageBundle:Page')->find($page_id);
-        $page->setEdited(false);
 		
-        $snapshot = $transformer->create($page);
-		
-        $this->admin->create($snapshot);
-		
-		$pageManager = $this->get('sonata.page.manager.page');
-        $pageManager->save($page);
-		
-        $result = $snapshotManager->enableSnapshots(array($snapshot));*/
-        
         $notification_m = $this->get('sonata.notification.backend');
 		
 		$result = $notification_m->createAndPublish('sonata.page.create_snapshots', array(
@@ -291,7 +200,6 @@ class PageController extends FosRestController
      */
     public function postAction(Request $request, $page) {
     	
-		//return $this->container->get('sonata.page.manager.page');
 		$page = $this->getDoctrine()->getRepository('ApplicationSonataPageBundle:Page')->find($page);
 		
         $form = $this->getForm($page);
@@ -362,29 +270,12 @@ class PageController extends FosRestController
 		
 		$page = $this->getDoctrine()->getRepository('ApplicationSonataPageBundle:Page')->find($page_id);
 		
-		//get the route
-		//$this->get('router')->generate('api_post_site_createpage', array('page' => $page->getId(), 'site_id' => $page->getSite()->getId()));
-		//$route = $this->get('router')->generate('api_post_page', array('page' => $page->getId()));
-		
         $form = $this->getForm($page);
 		
 		return $form;
 		
 	}
 	
-    /**
-     * Display the edit form
-     *
-     * @param string $page path
-     * @return Form form instance
-     *
-     * @View(template="BRSCoreBundle:REST:create_page.html.twig")
-     
-    public function editAction($page) {	    
-	    $page = $this->getDoctrine()->getRepository('ApplicationSonataPageBundle:Page')->find($page);
-	    return $this->getForm($page);
-    }*/
-
     private function createPage($page)
     {
 	    return new Page();

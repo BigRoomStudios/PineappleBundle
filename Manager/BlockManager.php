@@ -29,10 +29,6 @@ class BlockManager extends BaseBlockManager
 		$this->pineapples    = array();
     }
 	
-	// public function getObjectManager() {
-		// error_log('test');
-	// }
-	
 	public function addPineapple($id, $pineapple) {
 		
 		//convert categories from a CSV to an array
@@ -105,37 +101,6 @@ class BlockManager extends BaseBlockManager
 		
 	}
 	
-	public function addSelectionBlock($container) {
-		
-        //add an empty block to the container
-        $container->addChildren($selection = $this->createSelectionBlock());
-		
-		//establish relationship with the empty block to the page
-		$page = $container->getPage();
-		$page->addBlocks($selection);
-        $selection->setPage($page);
-        
-		//get all the container's children
-		$container_children = $container->getChildren();
-		$num_children = count($container_children);
-		$col_width = 12 / $num_children;
-		
-		//set some settings on the empty block
-        $selection->setPosition($num_children);
-        $selection->setEnabled(true);
-		
-		//adjust the size of each column
-		foreach($container_children as $child) {
-			
-			$child->setSetting('width', "col-$col_width");
-			
-		}
-		
-		//set the page
-		$selection->setPage($page);
-		
-	}
-	
 	/**
 	 * 
 	 */
@@ -169,16 +134,6 @@ class BlockManager extends BaseBlockManager
 		$page->addBlocks($widget);
         $widget->setPage($page);
         
-		//determine the width of each child
-		$container_children = $container->getChildren();
-		$num_children = count($container_children);
-		$col_width = 12 / $num_children;
-		
-		//set the size of each child
-		foreach($container_children as $child) {
-			$child->setSetting('width', "col-$col_width");
-		}
-		
 		//set some settings on the empty block
         $widget->setPosition($num_children);
         $widget->setEnabled(true);
@@ -218,17 +173,6 @@ class BlockManager extends BaseBlockManager
 		
 		//return the new widget
 		return $widget;
-		
-	}
-	
-	public function createSelectionBlock() {
-		
-		$block = $this->create();
-		$block->setType('brs.block.service.selection');
-		
-		$block->setSetting('template', 'BRSCoreBundle:Blocks:selection.html.twig');
-		
-		return $block;
 		
 	}
 	

@@ -6,7 +6,7 @@
 		
 		{% for item in list %}
 			{% block list_item %}
-				<div class="list-item media-item col-sm-3 text-center" data-id="{{ item.id }}" data-url="{% path item, 'small' %}">
+				<div class="list-item media-item col-sm-3 text-center" data-id="{{ item.id }}" data-url="http://{{ app.request.getHost() }}{% path item, 'big' %}">
 					{% media item, 'small' %}
 				</div>
 			{% endblock %}
