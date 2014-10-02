@@ -48,7 +48,7 @@ class ListBlockService extends BaseBlockService
 			'block' => $blockContext->getBlock(),
 			'settings' => $settings,
 			'list' => $list,
-			'pagination' => $this->pagination
+			//'pagination' => $this->pagination
 		));
 		
 	}
