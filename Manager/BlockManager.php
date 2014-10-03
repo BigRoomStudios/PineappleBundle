@@ -157,7 +157,7 @@ class BlockManager extends BaseBlockManager
 		$widget = $this->create();
 		$widget->setType($widgetServiceName);
 		
-		$resolver = new OptionsResolver($pineapple_options);
+		$resolver = new OptionsResolver();
 		
 		//get the widget service
 		$widgetService = $this->container->get($widgetServiceName);
