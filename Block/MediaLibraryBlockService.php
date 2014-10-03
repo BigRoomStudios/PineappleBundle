@@ -22,10 +22,14 @@ class MediaLibraryBlockService extends ListBlockService
 	 * {@inheritdoc}
 	 */
 	public function setDefaultSettings(OptionsResolverInterface $resolver) {
+		
+		parent::setDefaultSettings($resolver);
+		
 		$resolver->setDefaults(array(
 			'template' => 'BRSPineappleBundle:Blocks:media-library.html.twig',
 			'entity' => 'ApplicationSonataMediaBundle:Media',
 		));
+		
 	}
 	
 }
