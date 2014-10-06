@@ -13,6 +13,7 @@ use FOS\RestBundle\Controller\Annotations\Prefix,
     FOS\RestBundle\Controller\Annotations\QueryParam,
     FOS\RestBundle\Controller\Annotations\Get,
     FOS\RestBundle\Controller\Annotations\Post,
+    FOS\RestBundle\Controller\Annotations\Delete,
     FOS\RestBundle\Controller\Annotations\Route,
     FOS\RestBundle\Controller\FOSRestController;
 
@@ -71,6 +72,22 @@ class BlockController extends FosRestController
 		$response = $blockService->execute($blockContext);
 		
 		return $response;
+		
+	}
+	
+	/**
+	 * Generates a form that can be used to set the settings for a given widget type.
+	 * 
+	 * @Delete("/api/block/{id}", name="api_block_delete")
+	 */
+	public function deleteBlock($block_id) {
+		
+		$block = $this->getDoctrine()->getRepository('ApplicationSonataPageBundle:Block')->find($block_id);
+		
+		$em = $this->getDoctrine()->getEntityManager();
+		$em->remove($block);
+		
+		$em->flush();
 		
 	}
 	
