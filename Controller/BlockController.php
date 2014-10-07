@@ -80,9 +80,9 @@ class BlockController extends FosRestController
 	 * 
 	 * @Delete("/api/block/{id}", name="api_block_delete")
 	 */
-	public function deleteBlock($block_id) {
+	public function deleteBlock(Request $request, $id) {
 		
-		$block = $this->getDoctrine()->getRepository('ApplicationSonataPageBundle:Block')->find($block_id);
+		$block = $this->getDoctrine()->getRepository('ApplicationSonataPageBundle:Block')->find($id);
 		
 		$em = $this->getDoctrine()->getEntityManager();
 		$em->remove($block);
