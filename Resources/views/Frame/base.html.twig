@@ -16,18 +16,20 @@
       	<meta name="keywords" content="{{ site.metaKeywords }},{{ page.metaKeyword }}">
       {% endif %}
   
+      {% block social_meta %}
       <!-- Twitter card meta: https://dev.twitter.com/docs/cards -->
       <meta name="twitter:card" content="summary">
       <!-- Twitter account relative to site: <meta name="twitter:site" content="@TwitterUsername"> -->
       <meta name="twitter:title" content="{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}">
       <meta name="twitter:description" content="{{ page.metaDescription|default(site.metaDescription) }}">
       <!-- Relative share image URL <meta name="twitter:image:src" content="http://mydomain.com/img/share.png"> -->
-  
+
       <!-- Facebook OpenGraph meta: https://developers.facebook.com/docs/opengraph/using-objects -->
       <meta property="og:site_name" content="{{ site.title }}"/>
       <meta property="og:title" content="{{ page.title|default(site.title) }}"/>
       <meta property="og:description" content="{{ page.metaDescription|default(site.metaDescription) }}">
       <!-- Relative share image URL <meta property="og:image" content="http://mydomain.com/img/share.png"/> -->
+      {% endblock %}
       
       <title>{{ site.title }}{% block title %}{% if page.title %} - {{ page.title }}{% endif %}{% endblock %}</title>
       
