@@ -14,10 +14,10 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class BRSPineappleExtension extends Extension
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function load(array $configs, ContainerBuilder $container) {
+	/**
+	 * {@inheritDoc}
+	 */
+	public function load(array $configs, ContainerBuilder $container) {
 		
 		$configuration = new Configuration();
 		$config = $this->processConfiguration($configuration, $configs);
