@@ -1,5 +1,5 @@
 <pineapple>
-  <current page-id="{{ page.id }}" site-id="{{ site.id }}"></current>
+  {% if site is defined %}<current page-id="{{ page.id }}" site-id="{{ site.id }}"></current>{% endif %}
   <toolbar>
     <div class="pineapple-toggle-width"><i class="fa fa-minus-circle pineapple-minimize"></i><i class="fa fa-plus-circle pineapple-maximize"></i></div>
     <div class="pineapple-toolbar-heading">
