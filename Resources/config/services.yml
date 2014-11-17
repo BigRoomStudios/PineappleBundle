@@ -39,6 +39,11 @@ services:
         tags:
             - { name: twig.extension }
     
+    brs.twig.geo_extension:
+        class: BRS\PineappleBundle\Twig\GeoExtension
+        tags:
+            - { name: twig.extension }
+    
     ###
     ###  Managers
     ###
