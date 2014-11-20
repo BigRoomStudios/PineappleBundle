@@ -25,7 +25,7 @@ class GeoExtension extends \Twig_Extension
 	 * 
 	 * @return void
 	 */
-	public function geoDistance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000) {
+	public function geoDistance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 3959) {
 		
 		// convert from degrees to radians
 		$latFrom = deg2rad($latitudeFrom);
